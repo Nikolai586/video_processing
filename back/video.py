@@ -33,7 +33,7 @@ def video_processing_trigger_select():
     return make_response("200_OK", 200)
 
 
-def hello2():
+def get_webcam():
     cap = VideoStream(src=0).start()
     sleep(2)
     while True:
@@ -50,7 +50,7 @@ def hello2():
 
 @app.route("/video")
 def video():
-    return Response(hello2(),
+    return Response(get_webcam(),
                     mimetype="multipart/x-mixed-replace; boundary=frame")
 
 
