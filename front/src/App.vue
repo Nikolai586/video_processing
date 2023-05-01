@@ -23,8 +23,11 @@ export default {
     return {
       button: false,
       backendUrl: process.env.VUE_APP_BACKEND_URL_API,
-      image: "http://192.168.1.52:5001/video",
+      image: undefined,
     };
+  },
+  mounted() {
+    this.setUrl()
   },
   methods: {
     test(bool) {
@@ -37,6 +40,9 @@ export default {
         }
       });
     },
+    setUrl() {
+      this.image = `${this.backendUrl}/video`
+    }
   },
 };
 </script>
